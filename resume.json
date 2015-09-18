@@ -1,0 +1,217 @@
+{
+  "localizations":["en","ru","ua"],
+  "name":{
+    "en":"Bogdan Gladyshev",
+    "ru":"Богдан Гладышев",
+    "ua":"Богдан Гладишев"
+  },
+  "mail":"siredvin.dark@gmail.com",
+  "phone":"+38 (063) 678 72 41",
+  "Skype": "darkkeper",
+  "Github": {
+    "link":"https://github.com/SirEdvin",
+    "text":"SirEdvin"
+  },
+  "BitBucket": {
+    "link": "https://bitbucket.org/siredvin/",
+    "text": "SirEdvin"
+  },
+  "birthday":{
+    "en" : "19 january 1995",
+    "ru" : "19 января 1995 года",
+    "ua" : "19 січня 1995 року"
+  },
+
+  "education":[
+      {
+      "start": 2011,
+      "end": 2015,
+      "title" : {
+        "en": {
+          "link":"http://kpi.ua/en",
+          "text":"\"Institute for Applied System Analysis\", NTUU \"KPI\""
+        },
+        "ru": {
+          "link":"http://kpi.ua/ru",
+          "text":"\"Институт прикладного системного анализа\", НТУУ \"КПИ\""
+        },
+        "ua": {
+          "link":"http://kpi.ua",
+          "text":"\"Інститут прикладного системного аналізу\", НТУУ \"КПІ\""
+        }
+      },
+      "degree": {
+        "en": "Bachelor of System Analysis",
+        "ru": "Бакаларв Системного анализа",
+        "ua": "Бакалавр Системного аналізу"
+      }
+    }
+  ],
+
+  "technical_skills":{
+    "en" : [
+      "Java, creating apps for Android, Windows, Linux.",
+      "Worked with JavaScript, C++, Python languages.",
+      "Worked with LaTeX, XeLaTeX, Markdown.",
+      "Worked with JavaFX, JUnit, Gradle.",
+      "Basic knowledge of AngularJS, PyQT, Java Servlet."
+    ],
+    "ru" : [
+      "Java, создание приложений для Android, Windows, Linux.",
+      "Базовые знания языков JavaScript, Python, C++.",
+      "Умение работать с языками разметки: LaTex, XeLaTeX, Markdown.",
+      "Умение работать с технологиями: JavaFX, JUnit, Gradle.",
+      "Базовые знания технологий: AngularJS, PyQT, Java Servlet."
+    ],
+    "ua" : [
+      "Java, створення додатків для Android, Windows, Linux",
+      "Базові знання мов програмування JavaScript, Python, C++",
+      "Уміння працювати з мовами розмітки: LaTeX, XeLaTeX, Markdown.",
+      "Уміння працювати з технологіями JavaFX, JUnit, Gradle.",
+      "Базові знання технологій AngularJS, PyQT, Java Servlet."
+    ]
+  },
+
+  "soft_skills":{
+    "en" : [
+      "Fast-learning.",
+      "Tutorials and guides writing."
+    ],
+    "ru" : [
+      "Умение быстро учится и осваивать новые технологии.",
+      "Умение подготавливать обучающие материалы."
+    ],
+    "ua" : [
+      "Вміння швидко навчатися та засвоювати нові технології.",
+      "Вміння готувати матеріали для навчання."
+    ]
+  },
+
+  "projects":{
+    "java":{
+      "en":[
+        "(JavaFX, ControlFX, bachelor diploma project) Numerical algorithms revival of the characteristics of the insurance model Cramer-Lundberg.",
+        "(JavaFX, Java 8, Gradle) AnjiProject. Set of useful libraries, with matrices, vectors, LaTeX API and more."      ],
+      "ru":[
+        "(JavaFX, ControlFX, дипломный проект бакалавра) Численные алгоритмы нахождение характеристик вырождения в страховой модели Крамера-Лундберга",
+        "(JavaFX, Java 8, Gradle) AnjiProject. Набор полезных библиотек с абстракциями и утилитами для программирования. Включает в себя матрицы, вектора, работу с LaTeX и многое другое."
+      ],
+      "ua":[
+        "(JavaFX, ControlFX, дипломний проект бакалавра) Чисельні алгоритми знаходження характеристик виродження в страховій моделі Крамера-Лундберга.",
+        "(JavaFX, Java 8, Gradle) AnjiProject. Набір корисних бібліотек з абстракціями та утілітами для програмування. Містить матриці, вектори, роботу з LaTeX та багато іншого."
+      ]
+    },
+    "web":{
+      "en":[
+        { "text_flow":
+          [
+            "(AlgularJS+Bootstrap+EDX) MIPS microprocessor emulator. The project is used for the educational process at our faculty. It is embedded into ",
+            {
+              "text": "IASA EDX",
+              "link": "http://194.44.11.172/courses/IASA/MIPS01/2015-test1/about"
+            },
+            " online learning platform."
+          ]
+        }
+      ],
+      "ru":[
+        {
+          "text_flow": [
+            "(AngularJS+Bootstrap+EDX) Эмулятор микропроцессора MIPS. Проект используется для обучения на нашем факультете. Интегрирован с системой",
+            {
+              "text": "дистанционного обучения EDX",
+              "link": "http://194.44.11.172/courses/IASA/MIPS01/2015-test1/about"
+            }
+          ]
+        }
+      ],
+      "ua":[
+        {
+          "text_flow": [
+            "(AngularJS+Bootstrap+EDX) Емулятор мікропроцесору MIPS. Проект використовується для навчання на нашому факультеті. Інтегрований з системною .",
+            {
+              "text": "дистанційного навчання EDX",
+              "link": "http://194.44.11.172/courses/IASA/MIPS01/2015-test1/about"
+            }
+          ]
+        }
+      ]
+    }
+  },
+
+  "languages":{
+    "en":[
+      "English: Pre-Intermediate - Intermediate.",
+      "Ukrainian: native.",
+      "Russian: native."
+    ],
+    "ru":[
+      "Английский: Pre-Intermediate – Intermediate.",
+      "Украинский: родной.",
+      "Русский: родной."
+    ],
+    "ua":[
+      "Англійська: Pre-Intermediate – Intermediate.",
+      "Українська: рідна.",
+      "Російська: рідна."
+    ]
+  },
+
+  "interests":{
+    "en":[
+      "Open-Source projects.",
+      "Writing Java formalization of the mathematical functions and methods.",
+      "Natural language processing, systems design, numerical methods.",
+      "Reading novels."
+    ],
+    "ua":[
+      "Open-Source проекти.",
+      "Написання формалізацій математичний функції та методів на Java.",
+      "Обробка натуральних мов, проектування систем, чисельні методи.",
+      "Читання новел."
+    ],
+    "ru":[
+      "Open-Source проекты.",
+      "Написание формализаций математический функций та методов на Java.",
+      "Обработка натуральных языков, проектирование систем, численные методы.",
+      "Чтение новел."
+    ]
+  },
+
+  "certificates":{
+    "en":[
+      {
+        "text_flow": [
+          "Oracle MOOC: Java SE 8 Lambdas and Streams ",
+          {
+            "text": "(certificate)",
+            "link": "http://siredvin.github.io/pdfs/oracle-lambdas.pdf"
+          }
+        ]
+      }
+    ],
+    "ua":[
+      { "text_flow":
+        [
+          "Oracle MOOC: Java SE 8 Lambdas and Streams ",
+          {
+            "text": "(certificate)",
+            "link": "http://siredvin.github.io/pdfs/oracle-lambdas.pdf"
+          }
+        ]
+      }
+    ],
+    "ru":[
+      {
+        "text_flow": [
+          "Oracle MOOC: Java SE 8 Lambdas and Streams ",
+          {
+            "text": "(certificate)",
+            "link": "http://siredvin.github.io/pdfs/oracle-lambdas.pdf"
+          }
+        ]
+      }
+    ]
+  }
+
+}

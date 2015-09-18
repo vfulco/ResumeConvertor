@@ -1,0 +1,56 @@
+{{ '#' }}{{name}}
+{{birthday_locale}}: {{birthday}}
+
+{{mail_locale}} : {{mail}}
+
+{{phone_locale}}: {{phone}}
+
+Skype: {{Skype}}
+
+Github: {{Github}}
+
+BitBucket: {{BitBucket}}
+
+{{ '###' }}{{education_locale}}
+{% for educt in education %}
+{{ '#####' }}{{educt.start}}-{{educt.end}}
+{{educt.title}}
+
+{{educt.degree}}
+{% endfor %}
+
+{{ '###' }}{{project_locale}}
+
+{% for type in projects.keys() %}
+{{ '####' }}{{ type[0].upper()+type[1:] }}
+{% for project in projects[type] %}
+- {{project}}
+{% endfor %}
+
+{% endfor %}
+
+{{ '###' }}{{tech_skill_locale}}
+{% for skill in technical_skills %}
++ {{skill}}
+{% endfor %}
+
+{{ '###' }}{{certificates_locale}}
+{% for certificate in certificates %}
++ {{certificate}}
+{% endfor %}
+
+{{ '### '}}{{soft_skill_locale}}
+{% for skill in soft_skills %}
++ {{skill}}
+{% endfor %}
+
+{{ '###' }}{{languages_locale}}
+{% for language in languages %}
++ {{language}}
+{% endfor %}
+
+{{ '###' }}{{interests_locale}}
+{% for interest in interests %}
++ {{interest}}
+{% endfor %}
+
