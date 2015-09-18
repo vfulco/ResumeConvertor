@@ -1,0 +1,126 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8
+
+\documentclass[a4paper,12pt,oneside]{{ '{' }}article{{ '}' }}
+% CV Info (to be customized).
+\input{{ '{' }}CV-preamble.tex{{' }' }}
+\newcommand{{ '{' }}\CVTitle{{ '}' }}{{ '{' }}{{name}} CV{{ '}' }}
+
+% PDF settings and properties.
+\hypersetup{{ '{' }}
+    pdftitle={{ '{' }}\CVTitle{{ '}' }},
+    pdfauthor={{ '{' }}{{ name }}{{ '}' }},
+    %pdfsubject={{ '{' }}http://www.example.com/johndoe{{ '}' }},
+    pdfcreator={{ '{' }}XeLaTeX{{ '}' }},
+    pdfproducer={{ '{' }}{{ '}' }},
+    pdfkeywords={{ '{' }}{{ '}' }},
+    pdfpagemode={{ '{' }}{{ '}' }},
+    bookmarks=true,
+    unicode=true,
+    bookmarksopen=true,
+    pdfstartview=FitH,
+    pdfpagelayout=OneColumn,
+    pdfpagemode=UseOutlines,
+    %hidelinks,
+    breaklinks
+{{ '}' }}
+
+\newcommand{{ '{' }}\githublogo{{ '}' }} {{ '{' }}\includegraphics[height=0.7em]{{ '{' }}github-logo.png{{ '}' }}{{ '}' }}
+\newcommand{{ '{' }}\bitbucketlogo{{ '}' }} {{ '{' }}\includegraphics[height=0.8em]{{ '{' }}bitbucket-logo-gray.png{{ '}' }}{{ '}' }}
+
+% Do not stop on errors during compilation.
+\nonstopmode
+
+\begin{{ '{' }}document{{ '}' }}
+
+%%%%%%%%%%%%%%%
+% TITLE BLOCK %
+%%%%%%%%%%%%%%%
+
+\title{{ '{' }}{{name}}{{ '}' }}
+
+\begin{{ '{' }}subtitle{{ '}' }}
+    \href{{ '{' }}mailto:{{mail}}{{ '}' }}{{ '{' }}{{mail}}{{ '}' }}
+    \,\BulletSymbol\,
+    {{phone}}
+    \,\BulletSymbol\,Skype: {{Skype}}
+\end{{ '{' }}subtitle{{ '}' }}
+
+\begin{{ '{' }}body{{ '}' }}
+
+%%%%%%%%%%%%
+%% SKILLS %%
+%%%%%%%%%%%%
+
+\section{{ '{' }}{{tech_skill_locale}}{{ '}' }}{{ '{' }}{{tech_skill_locale}}{{ '}' }}{{ '{' }}PDF:Skills{{ '}' }}
+
+{% for skill in technical_skills %}
+\par {{skill}}
+{% endfor %}
+
+%%%%%%%%%%%
+%% проекты %%
+%%%%%%%%%%%%
+
+\section{{ '{' }}{{project_locale}}{{ '}' }}{{ '{' }}{{project_locale}}{{ '}' }}{{ '{' }}PDF:Projects{{ '}' }}
+
+{% for type in projects.keys() %}
+\par \textbf{{ '{' }}{{ type[0].upper()+type[1:] }}:{{ '}' }}
+\begin{{ '{' }}itemize{{ '}' }}
+    {% for project in projects[type] %}
+    \item {{project}}
+    {% endfor %}
+\end{{ '{' }}itemize{{ '}' }}
+{% endfor %}
+
+Most source code is available on:
+\begin{{ '{' }}description{{ '}' }}
+    \item[\githublogo] {{Github}}
+    \item[\bitbucketlogo] {{BitBucket}}
+\end{{ '{' }}description{{ '}' }}
+
+%%%%%%%%%%%%%%%
+%% EDUCATION %%
+%%%%%%%%%%%%%%%
+
+\section{{ '{' }}{{education_locale}}{{ '}' }}{{ '{' }}{{education_locale}}{{ '}' }}{{ '{' }}PDF:Education{{ '}' }}
+
+{% for educt in education %}
+\par \textbf{{ '{' }}Years of education{{ '}' }}: from {{educt.start}} to {{educt.end}}
+
+     \qquad {{educt.title}}
+
+     \qquad {{educt.degree}}
+{% endfor %}
+
+
+
+
+%%%%%%%%%%%%%%%
+%% LANGUAGES %%
+%%%%%%%%%%%%%%%
+
+\section{{ '{' }}{{languages_locale}}{{ '}' }}{{ '{' }}{{languages_locale}}{{ '}' }}{{ '{' }}PDF:Languages{{ '}' }}
+{% for language in languages %}
+    \par {{language}}
+{% endfor %}
+
+\section{{ '{' }}{{certificates_locale}}{{ '}' }}{{ '{' }}{{certificates_locale}}{{ '}' }}{{ '{' }}PDF:Certificates{{ '}' }}
+{% for certificate in certificates %}
+    \par {{certificate}}
+{% endfor %}
+
+\section{{ '{' }}{{soft_skill_locale}}{{ '}' }}{{ '{' }}{{soft_skill_locale}}{{ '}' }}{{ '{' }}PDF:SoftSkills{{ '}' }}
+{% for skill in soft_skills %}
+\par {{skill}}
+{% endfor %}
+
+\section{{ '{' }}{{interests_locale}}{{ '}' }}{{ '{' }}{{interests_locale}}{{ '}' }}{{ '{' }}PDF:Interests{{ '}' }}
+{% for interest in interests %}
+    \par {{interest}}
+{% endfor %}
+\end{{ '{' }}body{{ '}' }}
+
+
+\label{{ '{' }}LastPage{{ '}' }}~
+\end{{ '{' }}document{{ '}' }}
