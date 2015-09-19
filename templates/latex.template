@@ -37,6 +37,8 @@
 % TITLE BLOCK %
 %%%%%%%%%%%%%%%
 
+\pagestyle{empty}
+
 \title{{ '{' }}{{name}}{{ '}' }}
 
 \begin{{ '{' }}subtitle{{ '}' }}

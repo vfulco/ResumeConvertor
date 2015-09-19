@@ -8,6 +8,9 @@ import jinja2 as jnj
 import util
 
 a = "java"
-print(a[0].upper()+a[1:])
+local_file = open(os.path.join("locale", "en.py"))
+print(eval(util.read_full_file(local_file)))
+print()
+local_file.close()
 
 

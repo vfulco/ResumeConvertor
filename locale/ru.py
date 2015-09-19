@@ -1,5 +1,4 @@
-__author__ = 'siredvin'
-localization_map = {
+{
     "birthday_locale": "День рождения",
     "mail_locale": "Почта",
     "phone_locale": "Телефон",
