@@ -3,6 +3,7 @@ __author__ = 'siredvin'
 import argparse
 import util
 import json
+import logging
 from functools import reduce
 import markdowncovert as md
 import latexconvert as tex
@@ -10,21 +11,26 @@ from jinja2 import Environment, FileSystemLoader
 import os
 import subprocess
 
-def markdown_generation(_resume, _localizations, _output, _output_directory, _j2_env):
-    for _locale in _localizations:
-        generated_json = md.generate_localized_markdown(_resume, _locale)
 
+def markdown_generation(_resume, _localizations, _output, _output_directory, _j2_env):
+    _logger = logging.getLogger("Resume Convertor")
+    for _locale in _localizations:
+        _logger.info("Генерація markdown для "+_locale+" мови")
+        generated_json = md.generate_localized_markdown(_resume, _locale)
         local_file = open(os.path.join(args.localization_directory, _locale + ".py"))
         localization_map = eval(util.read_full_file(local_file))
         local_file.close()
         generated_json.update(localization_map)
 
-        markdown_file = open(os.path.join(_output_directory, _output.replace("%", _locale)+'.md'), 'w')
+        markdown_file = open(os.path.join(_output_directory, _output.replace("%", _locale) + '.md'), 'w')
         markdown_file.write(_j2_env.get_template('markdown.template').render(generated_json))
         markdown_file.close()
 
+
 def latex_generation(_resume, _localization, _output, _output_directory, _j2_env, _template_directory):
+    _logger = logging.getLogger("Resume Convertor")
     for _locale in _localization:
+        _logger.info("Генерація xelatex для "+_locale+" мови")
         generated_json = tex.generate_localized_latex(_resume, _locale)
 
         local_file = open(os.path.join(args.localization_directory, _locale + ".py"))
@@ -36,11 +42,12 @@ def latex_generation(_resume, _localization, _output, _output_directory, _j2_env
         latex_file.write(_j2_env.get_template('latex.template').render(generated_json))
         latex_file.close()
         latex_include = os.path.join(_template_directory, "LatexInclude")
-        subprocess.call(["xelatex", "main.tex"], cwd=latex_include)
+        _logger.info("Компіляція xelatex файлу")
+        subprocess.call(["xelatex", "main.tex"], cwd=latex_include, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         for file in ['main.aux', 'main.out', 'main.log', 'main.tex']:
             os.remove(os.path.join(latex_include, file))
         os.rename(os.path.join(latex_include, 'main.pdf'), os.path.join(_output_directory,
-                                                                        _output.replace('%', _locale)+'.pdf'))
+                                                                        _output.replace('%', _locale) + '.pdf'))
 
 
 scriptDirectory = os.path.dirname(os.path.abspath(__file__))
@@ -56,17 +63,20 @@ parser.add_argument("--output-directory", "-d", default="output", help="Output d
 parser.add_argument("--markdown", "-m", action='store_true', default=False, help="Enable markdown output")
 parser.add_argument("--pdf", '-p', action='store_true', default=False, help="Enable pdf output via latex")
 
+logging.basicConfig(level=logging.INFO)
 args = parser.parse_args()
 if not os.path.exists(args.output_directory):
     os.mkdir(args.output_directory)
-print("Заванатження файлу резюме")
+logger = logging.getLogger("Resume Convertor")
+logger.info("Заванатження файлу резюме")
 resumeFile = open(args.file)
 resume = json.loads(reduce(lambda x, y: x + y, resumeFile.readlines(), ""))
 resumeFile.close()
 locales = resume['localizations']
-
+logger.info("Початок генераії")
 j2_env = Environment(loader=FileSystemLoader(args.template_directory), trim_blocks=True)
 if args.markdown:
     markdown_generation(resume, locales, args.output, args.output_directory, j2_env)
 if args.pdf:
     latex_generation(resume, locales, args.output, args.output_directory, j2_env, args.template_directory)
+logger.info("Робота завершена")
