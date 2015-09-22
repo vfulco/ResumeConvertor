@@ -15,7 +15,7 @@ import subprocess
 def markdown_generation(_resume, _localizations, _output, _output_directory, _j2_env):
     _logger = logging.getLogger("Resume Convertor")
     for _locale in _localizations:
-        _logger.info("Генерація markdown для "+_locale+" мови")
+        _logger.info("Генерація markdown для " + _locale + " мови")
         generated_json = md.generate_localized_markdown(_resume, _locale)
         local_file = open(os.path.join(args.localization_directory, _locale + ".py"))
         localization_map = eval(util.read_full_file(local_file))
@@ -30,7 +30,7 @@ def markdown_generation(_resume, _localizations, _output, _output_directory, _j2
 def latex_generation(_resume, _localization, _output, _output_directory, _j2_env, _template_directory):
     _logger = logging.getLogger("Resume Convertor")
     for _locale in _localization:
-        _logger.info("Генерація xelatex для "+_locale+" мови")
+        _logger.info("Генерація xelatex для " + _locale + " мови")
         generated_json = tex.generate_localized_latex(_resume, _locale)
 
         local_file = open(os.path.join(args.localization_directory, _locale + ".py"))
@@ -43,7 +43,8 @@ def latex_generation(_resume, _localization, _output, _output_directory, _j2_env
         latex_file.close()
         latex_include = os.path.join(_template_directory, "LatexInclude")
         _logger.info("Компіляція xelatex файлу")
-        subprocess.call(["xelatex", "main.tex"], cwd=latex_include, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.call(["xelatex", "main.tex"], cwd=latex_include, stdout=subprocess.DEVNULL,
+                        stderr=subprocess.DEVNULL)
         for file in ['main.aux', 'main.out', 'main.log', 'main.tex']:
             os.remove(os.path.join(latex_include, file))
         os.rename(os.path.join(latex_include, 'main.pdf'), os.path.join(_output_directory,
@@ -58,10 +59,13 @@ parser.add_argument("--template-directory", type=str, default=os.path.join(scrip
                     help="template directory with markdown and latex templates")
 parser.add_argument("--localization-directory", type=str, default=os.path.join(scriptDirectory, "locale"),
                     help="directory with localization python files")
-parser.add_argument("--output", type=str, default="resume_%", help="Output file template % will be replaced by locale")
+parser.add_argument("--output", type=str, default="resume_%", help="Output file template will be replaced by locale")
 parser.add_argument("--output-directory", "-d", default="output", help="Output directory for results")
 parser.add_argument("--markdown", "-m", action='store_true', default=False, help="Enable markdown output")
 parser.add_argument("--pdf", '-p', action='store_true', default=False, help="Enable pdf output via latex")
+parser.add_argument("--language-tool", default=None, type=str,
+                    help="Path to LanguageTool Server. If added, LanguageTool will be used to check resume")
+parser.add_argument("--language-tool-port", default=7658, type=int, help="Port for LanguageTool server")
 
 logging.basicConfig(level=logging.INFO)
 args = parser.parse_args()

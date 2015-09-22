@@ -1,3 +1,8 @@
+Title: Резюме
+Lang: {{locale}}
+Data: 22-07-2015
+Slug: resume
+
 {{ '#' }}{{name}}
 {{birthday_locale}}: {{birthday}}
 

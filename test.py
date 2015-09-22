@@ -6,11 +6,9 @@ from functools import reduce
 import os
 import jinja2 as jnj
 import util
+import languagetool
+import requests
 
-a = "java"
-local_file = open(os.path.join("locale", "en.py"))
-print(eval(util.read_full_file(local_file)))
-print()
-local_file.close()
-
+r = requests.post("http://localhost:8081", {"language": 'en', 'text': 'my texd'})
+print(r.text)
 

@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-python3 ./convertor.py -m -p resume.json
+python3 ./convertor.py -h

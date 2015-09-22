@@ -11,7 +11,9 @@ def generate_localized_markdown(resume, locale):
     resume = deepcopy(resume)
     localizations = resume['localizations']
     resume.pop('localizations', None)
-    return generate_markdown_part(resume, locale, localizations)
+    result = generate_markdown_part(resume, locale, localizations)
+    result.update({'locale': locale})
+    return result
 
 def generate_markdown_part(resume, locale, localizations):
     for key in resume.keys():
