@@ -8,5 +8,11 @@
     "certificates_locale": "Сертификаты",
     "soft_skill_locale": "Навыки",
     "languages_locale": "Языки",
-    "interests_locale": "Интересы"
+    "interests_locale": "Интересы",
+    'title': 'Резюме',
+    'print_version': 'Версия для печати',
+    'source_code_source': 'Большая часть програмного кода доступна на репозиториях',
+    'educt_years': 'Годы обучения',
+    'from': 'с',
+    'to': 'по'
 }

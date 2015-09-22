@@ -1,4 +1,4 @@
-Title: Резюме
+Title: {{title}}
 Lang: {{locale}}
 Data: 22-07-2015
 Slug: resume
@@ -59,3 +59,4 @@ BitBucket: {{BitBucket}}
 + {{interest}}
 {% endfor %}
 
+[{{print_version}}]({{ '{' }}filename{{ '}' }}/pdfs/resume_{{locale}}.pdf)

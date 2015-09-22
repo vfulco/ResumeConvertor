@@ -75,7 +75,7 @@
 \end{{ '{' }}itemize{{ '}' }}
 {% endfor %}
 
-Most source code is available on:
+{{source_code_source}}:
 \begin{{ '{' }}description{{ '}' }}
     \item[\githublogo] {{Github}}
     \item[\bitbucketlogo] {{BitBucket}}
@@ -88,7 +88,7 @@ Most source code is available on:
 \section{{ '{' }}{{education_locale}}{{ '}' }}{{ '{' }}{{education_locale}}{{ '}' }}{{ '{' }}PDF:Education{{ '}' }}
 
 {% for educt in education %}
-\par \textbf{{ '{' }}Years of education{{ '}' }}: from {{educt.start}} to {{educt.end}}
+\par \textbf{{ '{' }}{{educt_years}}{{ '}' }}: {{from}} {{educt.start}} {{to}} {{educt.end}}
 
      \qquad {{educt.title}}
 
