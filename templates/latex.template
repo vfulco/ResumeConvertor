@@ -88,7 +88,7 @@
 \section{{ '{' }}{{education_locale}}{{ '}' }}{{ '{' }}{{education_locale}}{{ '}' }}{{ '{' }}PDF:Education{{ '}' }}
 
 {% for educt in education %}
-\par \textbf{{ '{' }}{{educt_years}}{{ '}' }}: {{from}} {{educt.start}} {{to}} {{educt.end}}
+\par \textbf{{ '{' }}{{educt.start}} - {{educt.end}}{{ '}' }}:
 
      \qquad {{educt.title}}
 
